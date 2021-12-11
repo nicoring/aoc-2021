@@ -25,7 +25,7 @@ unsigned first_solution(const std::vector<std::string>& lines) {
     unsigned count;
     for (unsigned i = 0; i < lines[0].size(); i++) {
         count = 0;
-        for (const auto &line: lines) {
+        for (const std::string& line : lines) {
             if (line[line.size() - i - 1] == '1') {
                 count += 1;
             }
@@ -39,10 +39,7 @@ unsigned first_solution(const std::vector<std::string>& lines) {
     return gamma_rate * epsilon_rate;
 }
 
-enum rating_type {
-    CO2,
-    OXYGEN
-};
+enum rating_type { CO2, OXYGEN };
 
 unsigned get_rating(std::vector<std::string> lines, rating_type type) {
     unsigned pos = 0;
@@ -50,7 +47,7 @@ unsigned get_rating(std::vector<std::string> lines, rating_type type) {
     char filter;
     while (lines.size() > 1) {
         count = 0;
-        for (const auto &line: lines) {
+        for (const auto& line : lines) {
             if (line[pos] == '1') {
                 count += 1;
             }
@@ -67,10 +64,9 @@ unsigned get_rating(std::vector<std::string> lines, rating_type type) {
             } else {
                 filter = '0';
             }
-
         }
         std::vector<std::string> new_lines;
-        for (const auto &line: lines) {
+        for (const std::string& line : lines) {
             if (line[pos] == filter) {
                 new_lines.push_back(line);
             }
@@ -83,7 +79,6 @@ unsigned get_rating(std::vector<std::string> lines, rating_type type) {
     unsigned i = std::stoi(lines[0], nullptr, 2);
     return i;
 }
-
 
 unsigned second_solution(const std::vector<std::string>& lines) {
     unsigned oxygen_rating = get_rating(lines, OXYGEN);
