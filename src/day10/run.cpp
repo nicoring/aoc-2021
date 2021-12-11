@@ -28,7 +28,8 @@ char closing(char c) {
         return ']';
         break;
     case '{':
-        return '}';;
+        return '}';
+        ;
         break;
     case '<':
         return '>';
