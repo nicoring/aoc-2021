@@ -109,15 +109,18 @@ void print_grid(grid grid) {
 
 void do_fold(grid& grid, fold& fold) {
     int axis_size = fold.axis == 'y' ? grid.size() : grid[0].size();
-    for (int dist = 1; (fold.num - dist) >= 0 and (fold.num + dist) < axis_size; dist++) {
+    for (int dist = 1; (fold.num - dist) >= 0 and (fold.num + dist) < axis_size;
+         dist++) {
         if (fold.axis == 'x') {
             for (int row = 0; row < grid.size(); row++) {
-                grid[row][fold.num - dist] = grid[row][fold.num - dist] or grid[row][fold.num + dist];
+                grid[row][fold.num - dist] =
+                    grid[row][fold.num - dist] or grid[row][fold.num + dist];
                 grid[row][fold.num + dist] = false;
             }
         } else {
             for (int col = 0; col < grid[0].size(); col++) {
-                grid[fold.num - dist][col] = grid[fold.num - dist][col] or grid[fold.num + dist][col];
+                grid[fold.num - dist][col] =
+                    grid[fold.num - dist][col] or grid[fold.num + dist][col];
                 grid[fold.num + dist][col] = false;
             }
         }
@@ -134,9 +137,10 @@ void do_fold(grid& grid, fold& fold) {
 
 int sum(grid& grid) {
     int count = 0;
-    for (auto row: grid) {
+    for (auto row : grid) {
         for (bool el : row) {
-            if (el) count++;
+            if (el)
+                count++;
         }
     }
     return count;
