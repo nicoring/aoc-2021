@@ -99,9 +99,9 @@ unsigned int second_solution(const std::vector<std::string>& lines) {
     Grid<int> grid = parse_grid(lines);
     const int rows = grid.size();
     const int cols = grid[0].size();
-        
+
     unsigned int round = 0;
-    while(true) {
+    while (true) {
         round++;
         Grid<bool> flashed(rows, std::vector<bool>(cols, false));
         for (int row = 0; row < rows; row++) {
@@ -145,7 +145,8 @@ unsigned int second_solution(const std::vector<std::string>& lines) {
                 }
             }
         }
-        if (all_flashed) break;
+        if (all_flashed)
+            break;
     }
     return round;
 }
