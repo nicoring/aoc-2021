@@ -1,5 +1,5 @@
 CXX := clang++
-CXXFLAGS := --std=c++2a -stdlib=libc++ -DNDEBUG -g -O0
+CXXFLAGS := --std=c++2a -stdlib=libc++ -DNDEBUG -O3#-g -O0
 BIN_DIR := bin
 
 %:
